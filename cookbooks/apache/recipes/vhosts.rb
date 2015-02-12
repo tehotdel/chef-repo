@@ -6,7 +6,7 @@ data_bag("vhosts").each do |site|
   template "/etc/http/conf.d/#{site_name}.conf" do
     source "custom-vhosts.erb"
     mode "0644"
-    variables (
+    variables(
       :document_root => document_root,
       :port => site_data["port"]
     )
@@ -21,7 +21,7 @@ data_bag("vhosts").each do |site|
   template "#{document_root}/index.html" do
     source "index.html.erb"
     mode "0644"
-    variables (
+    variables(
       :site_name => site_name,
       :port => site_data["port"]
     )
