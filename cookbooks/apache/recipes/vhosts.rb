@@ -3,7 +3,7 @@ data_bag("vhosts").each do |site|
   site_name = site_data["id"]
   document_root = "/srv/apache/#{site_name}"
 
-  template "/etc/http/conf.d/#{site_name}.conf" do
+  template "/etc/httpd/conf.d/#{site_name}.conf" do
     source "custom-vhosts.erb"
     mode "0644"
     variables(
